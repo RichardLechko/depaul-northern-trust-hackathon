@@ -13,6 +13,7 @@ const Currency: React.FC = () => {
   const apiUrl = 'https://react-resume-api.vercel.app/api/currency';
 
   useEffect(() => {
+
     const fetchCurrencyData = async () => {
       try {
         const response = await fetch(apiUrl);
@@ -20,15 +21,18 @@ const Currency: React.FC = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+        console.log('Fetched data:', data); // Add this log
+        console.log('Exchange rates:', exchangeRates); // Add this log
         setExchangeRates(data.conversion_rates);
       } catch (error) {
         setError((error as Error).message);
         console.error('Error fetching currency data:', error);
       }
     };
-
+  
     fetchCurrencyData();
   }, [apiUrl]);
+  
 
   const convertCurr = useCallback(() => {
     if (!exchangeRates[startCurrency] || !exchangeRates[endCurrency]) {
@@ -94,38 +98,10 @@ const Currency: React.FC = () => {
                 >
                   <option value="USD">United States Dollar</option>
                   <option value="AUD">Australian Dollar</option>
-                  <option value="BGN">Bulgaria Lev</option>
-                  <option value="BRL">Brazil Real</option>
                   <option value="CAD">Canada Dollar</option>
-                  <option value="CHF">Switzerland Franc</option>
-                  <option value="CNY">China Yuan/Renminbi</option>
-                  <option value="CZK">Czech Koruna</option>
-                  <option value="DKK">Denmark Krone</option>
                   <option value="EUR">Euro</option>
                   <option value="GBP">Great British Pound</option>
-                  <option value="HKD">Hong Kong Dollar</option>
-                  <option value="HRK">Croatia Kuna</option>
-                  <option value="HUF">Hungary Forint</option>
-                  <option value="IDR">Indonesia Rupiah</option>
-                  <option value="ILS">Israel New Shekel</option>
-                  <option value="INR">India Rupee</option>
-                  <option value="ISK">Iceland Krona</option>
                   <option value="JPY">Japan Yen</option>
-                  <option value="KRW">South Korea Won</option>
-                  <option value="MXN">Mexico Peso</option>
-                  <option value="MYR">Malaysia Ringgit</option>
-                  <option value="NOK">Norway Kroner</option>
-                  <option value="NZD">New Zealand Dollar</option>
-                  <option value="PHP">Philippines Peso</option>
-                  <option value="PLN">Poland Zloty</option>
-                  <option value="RON">Romania New Lei</option>
-                  <option value="RUB">Russia Rouble</option>
-                  <option value="SEK">Sweden Krona</option>
-                  <option value="SGD">Singapore Dollar</option>
-                  <option value="THB">Thailand Baht</option>
-                  <option value="TRY">Turkish New Lira</option>
-                  <option value="USD">United States Dollar</option>
-                  <option value="ZAR">South Africa Rand</option>
                 </select>
               </div>
               <div className="outline-1 outline-black outline-double mb-2 flex flex-col md:flex-row">
@@ -143,42 +119,13 @@ const Currency: React.FC = () => {
                   id="currency-end"
                   value={endCurrency}
                   onChange={(e) => setEndCurrency(e.target.value)}
-                  disabled  // Change here from readOnly to disabled
                 >
-                  <option value="EUR">Euro</option>
+                  <option value="USD">United States Dollar</option>
                   <option value="AUD">Australian Dollar</option>
-                  <option value="BGN">Bulgaria Lev</option>
-                  <option value="BRL">Brazil Real</option>
                   <option value="CAD">Canada Dollar</option>
-                  <option value="CHF">Switzerland Franc</option>
-                  <option value="CNY">China Yuan/Renminbi</option>
-                  <option value="CZK">Czech Koruna</option>
-                  <option value="DKK">Denmark Krone</option>
                   <option value="EUR">Euro</option>
                   <option value="GBP">Great British Pound</option>
-                  <option value="HKD">Hong Kong Dollar</option>
-                  <option value="HRK">Croatia Kuna</option>
-                  <option value="HUF">Hungary Forint</option>
-                  <option value="IDR">Indonesia Rupiah</option>
-                  <option value="ILS">Israel New Shekel</option>
-                  <option value="INR">India Rupee</option>
-                  <option value="ISK">Iceland Krona</option>
                   <option value="JPY">Japan Yen</option>
-                  <option value="KRW">South Korea Won</option>
-                  <option value="MXN">Mexico Peso</option>
-                  <option value="MYR">Malaysia Ringgit</option>
-                  <option value="NOK">Norway Kroner</option>
-                  <option value="NZD">New Zealand Dollar</option>
-                  <option value="PHP">Philippines Peso</option>
-                  <option value="PLN">Poland Zloty</option>
-                  <option value="RON">Romania New Lei</option>
-                  <option value="RUB">Russia Rouble</option>
-                  <option value="SEK">Sweden Krona</option>
-                  <option value="SGD">Singapore Dollar</option>
-                  <option value="THB">Thailand Baht</option>
-                  <option value="TRY">Turkish New Lira</option>
-                  <option value="USD">United States Dollar</option>
-                  <option value="ZAR">South Africa Rand</option>
                 </select>
               </div>
             </form>
