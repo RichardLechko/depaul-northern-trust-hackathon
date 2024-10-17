@@ -1,48 +1,47 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import type { ChangeEvent } from 'react';
-import { IoRefresh } from 'react-icons/io5';
+import React, { useState, useEffect, useCallback } from "react";
+import { IoRefresh } from "react-icons/io5";
 
-const Currency: React.FC = () => {
-  const [startCurrency, setStartCurrency] = useState<string>('USD');
-  const [endCurrency, setEndCurrency] = useState<string>('EUR');
-  const [firstCurrVal, setFirstCurrVal] = useState<string>('');
-  const [secondCurrVal, setSecondCurrVal] = useState<string>('');
-  const [exchangeRates, setExchangeRates] = useState<Record<string, number>>({});
-  const [error, setError] = useState<string | null>(null);
+const Currency = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  const apiUrl = 'https://react-resume-api.vercel.app/api/currency';
+  const [startCurrency, setStartCurrency] = useState("USD");
+  const [endCurrency, setEndCurrency] = useState("EUR");
+  const [firstCurrVal, setFirstCurrVal] = useState("");
+  const [secondCurrVal, setSecondCurrVal] = useState("");
+  const [exchangeRates, setExchangeRates] = useState({});
+  const [error, setError] = useState(null);
+
+  const apiUrl = "https://react-resume-api.vercel.app/api/currency";
 
   useEffect(() => {
-
     const fetchCurrencyData = async () => {
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        console.log('Fetched data:', data); // Add this log
-        console.log('Exchange rates:', exchangeRates); // Add this log
         setExchangeRates(data.conversion_rates);
       } catch (error) {
-        setError((error as Error).message);
-        console.error('Error fetching currency data:', error);
+        setError(error.message);
+        console.error("Error fetching currency data:", error);
       }
     };
-  
+
     fetchCurrencyData();
   }, [apiUrl]);
-  
 
   const convertCurr = useCallback(() => {
     if (!exchangeRates[startCurrency] || !exchangeRates[endCurrency]) {
-      setSecondCurrVal('');
+      setSecondCurrVal("");
       return;
     }
 
     const firstCurr = parseFloat(firstCurrVal);
     if (isNaN(firstCurr) || !isFinite(firstCurr)) {
-      setSecondCurrVal('');
+      setSecondCurrVal("");
       return;
     }
 
@@ -98,9 +97,12 @@ const Currency: React.FC = () => {
                 >
                   <option value="USD">United States Dollar</option>
                   <option value="AUD">Australian Dollar</option>
+
                   <option value="CAD">Canada Dollar</option>
+
                   <option value="EUR">Euro</option>
                   <option value="GBP">Great British Pound</option>
+
                   <option value="JPY">Japan Yen</option>
                 </select>
               </div>
@@ -119,31 +121,33 @@ const Currency: React.FC = () => {
                   id="currency-end"
                   value={endCurrency}
                   onChange={(e) => setEndCurrency(e.target.value)}
+                  readOnly
                 >
                   <option value="USD">United States Dollar</option>
                   <option value="AUD">Australian Dollar</option>
+
                   <option value="CAD">Canada Dollar</option>
+
                   <option value="EUR">Euro</option>
                   <option value="GBP">Great British Pound</option>
-                  <option value="JPY">Japan Yen</option>
-                </select>
+
+                  <option value="JPY">Japan Yen</option>                </select>
               </div>
             </form>
-            <div className="flex justify-center items-center">
-              <button
-                type="button"
-                className="bg-gray-300 hover:bg-gray-400 p-2 rounded-md mt-2 flex items-center"
-                onClick={handleFlip}
-              >
-                <IoRefresh className="mr-1" />
-                Flip Currency
-              </button>
-            </div>
+          </div>
+          <div className="flex-grow flex justify-center items-center mt-4 max-md:mt-0 ">
+            <i
+              id="flip-icon"
+              className="rotate-90 hover:cursor-pointer p-4 text-[4rem] max-[375px]:text-[3rem]"
+              onClick={handleFlip}
+            >
+              <IoRefresh />
+            </i>
           </div>
         </div>
-      </div>
 
-      {error && <p className="text-red-500 text-center">{error}</p>}
+        {error && <p className="text-red-500 mt-4 md:mt-0">{error}</p>}
+      </div>
     </div>
   );
 };
