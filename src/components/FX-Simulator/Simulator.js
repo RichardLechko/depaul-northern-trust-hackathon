@@ -74,6 +74,11 @@ function InitialBalanceForm({ setBalances }) {
           placeholder="Enter initial USD balance"
           value={initialBalance}
           onChange={(e) => setInitialBalance(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSetBalance(); // Call the function when Enter is pressed
+            }
+          }}
         />
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"

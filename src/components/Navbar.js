@@ -29,51 +29,40 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-gradient-to-r from-teal-400 to-blue-500 p-4 mb-8 shadow-lg relative max-[1024px]:px-2">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="flex-grow text-center">
-          <ul className="hidden md:flex justify-center space-x-12 text-3xl text-white max-[1440px]:text-2xl max-[1024px]:text-xl max-[1024px]:space-x-6">
-            <li>
-              <a
-                className="flex items-center hover:text-yellow-300 transition duration-300"
-                href="/"
-              >
-                <FaHome className="mr-2 text-4xl max-[1440px]:text-xl max-[1024px]:text-lg" />
-              </a>
-            </li>
-            <li>
-              <a
-                className="flex items-center hover:text-yellow-300 transition duration-300"
-                href="/converter"
-              >
-                <FaExchangeAlt className="mr-2 text-2xl max-[1440px]:text-xl max-[1024px]:text-lg" />
-                Currency Converter
-              </a>
-            </li>
-            <li>
-              <a
-                className="flex items-center hover:text-yellow-300 transition duration-300"
-                href="/data"
-              >
-                <FaChartLine className="mr-2 text-2xl max-[1440px]:text-xl max-[1024px]:text-lg" />
-                Historical & Predictive Data
-              </a>
-            </li>
-            <li>
-              <a
-                className="flex items-center hover:text-yellow-300 transition duration-300"
-                href="/simulator"
-              >
-                <FaCalculator className="mr-2 text-2xl max-[1440px]:text-xl max-[1024px]:text-lg" />
-                FX Trade Simulator
-              </a>
-            </li>
-          </ul>
+    <nav className="bg-white shadow-md py-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
+        <div className="hidden md:flex space-x-8 text-lg">
+          <a
+            className="flex items-center text-gray-700 hover:text-teal-600 transition duration-300"
+            href="/"
+          >
+            <FaHome className="mr-2" />
+            Home
+          </a>
+          <a
+            className="flex items-center text-gray-700 hover:text-teal-600 transition duration-300"
+            href="/converter"
+          >
+            <FaExchangeAlt className="mr-2" />
+            Currency Converter
+          </a>
+          <a
+            className="flex items-center text-gray-700 hover:text-teal-600 transition duration-300"
+            href="/data"
+          >
+            <FaChartLine className="mr-2" />
+            Historical & Predictive Data
+          </a>
+          <a
+            className="flex items-center text-gray-700 hover:text-teal-600 transition duration-300"
+            href="/simulator"
+          >
+            <FaCalculator className="mr-2" />
+            FX Trade Simulator
+          </a>
         </div>
-        <div className="md:hidden z-50 relative">
-          {" "}
-          {/* Added relative positioning */}
-          <button onClick={toggleMenu} className="text-white">
+        <div className="md:hidden z-50">
+          <button onClick={toggleMenu} className="text-teal-600">
             {isOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
           </button>
         </div>
@@ -88,36 +77,45 @@ const Navbar = () => {
       ></div>
 
       {/* Sidebar */}
-      <div className={`sidebar ${isOpen ? "open" : ""}`}>
-        <ul className="flex flex-col h-1/4 mt-10 justify-between text-xl max-[640px]:text-lg max-[425px]:text-sm max-[768px]:text-center">
-          <li>
-            <a
-              className="flex items-center hover:text-yellow-300 transition duration-300"
-              href="/converter"
-              onClick={toggleMenu}
-            >
-              Currency Converter
-            </a>
-          </li>
-          <li>
-            <a
-              className="flex items-center hover:text-yellow-300 transition duration-300"
-              href="/data"
-              onClick={toggleMenu}
-            >
-              Historical & Predictive Data
-            </a>
-          </li>
-          <li>
-            <a
-              className="flex items-center hover:text-yellow-300 transition duration-300"
-              href="/simulator"
-              onClick={toggleMenu}
-            >
-              FX Trade Simulator
-            </a>
-          </li>
-        </ul>
+      <div
+        className={`fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } z-50`}
+      >
+        <div className="flex flex-col h-full mt-10">
+          <ul className="space-y-4 text-lg text-gray-700">
+            <li>
+              <a
+                className="flex items-center hover:text-teal-600 transition duration-300"
+                href="/converter"
+                onClick={toggleMenu}
+              >
+                <FaExchangeAlt className="mr-2" />
+                Currency Converter
+              </a>
+            </li>
+            <li>
+              <a
+                className="flex items-center hover:text-teal-600 transition duration-300"
+                href="/data"
+                onClick={toggleMenu}
+              >
+                <FaChartLine className="mr-2" />
+                Historical & Predictive Data
+              </a>
+            </li>
+            <li>
+              <a
+                className="flex items-center hover:text-teal-600 transition duration-300"
+                href="/simulator"
+                onClick={toggleMenu}
+              >
+                <FaCalculator className="mr-2" />
+                FX Trade Simulator
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

@@ -51,26 +51,53 @@ const MainPage = () => {
           Your Application Awaits!
         </h1>
       </div>
+      <div className="p-4">
+        <p className="text-center text-sm text-gray-600">
+          Photo by{" "}
+          <a
+            href="https://unsplash.com/@nkdsn?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+            className="text-blue-500 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Nick Kelly
+          </a>{" "}
+          on{" "}
+          <a
+            href="https://unsplash.com/photos/a-group-of-people-walking-down-a-street-next-to-tall-buildings-XIhHDVmANvk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+            className="text-blue-500 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Unsplash
+          </a>
+        </p>
+        <p className="text-center text-sm text-gray-600">
+          Photo by{" "}
+          <a
+            href="https://unsplash.com/@tungstenrising?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+            className="text-blue-500 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Tungsten Rising
+          </a>{" "}
+          on{" "}
+          <a
+            href="https://unsplash.com/photos/looking-through-a-window-at-a-tall-building-wxLDZJ1Zgoo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+            className="text-blue-500 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Unsplash
+          </a>
+        </p>
+      </div>
       <div className="testimonials p-10">
         <h2 className="text-2xl font-bold text-center">What Our Users Say</h2>
         <Carousel />
       </div>
-      Photo by{" "}
-      <a href="https://unsplash.com/@nkdsn?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-        Nick Kelly
-      </a>{" "}
-      on{" "}
-      <a href="https://unsplash.com/photos/a-group-of-people-walking-down-a-street-next-to-tall-buildings-XIhHDVmANvk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-        Unsplash
-      </a>
-      Photo by{" "}
-      <a href="https://unsplash.com/@tungstenrising?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-        Tungsten Rising
-      </a>{" "}
-      on{" "}
-      <a href="https://unsplash.com/photos/looking-through-a-window-at-a-tall-building-wxLDZJ1Zgoo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-        Unsplash
-      </a>
+
       <div className="cta-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-10">
         <div className="card bg-white p-6 rounded shadow-lg">
           <h3 className="font-bold text-lg">Try Our Currency Converter</h3>
