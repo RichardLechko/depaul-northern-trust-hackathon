@@ -25,6 +25,7 @@ ChartJS.register(
   Legend
 );
 
+const api_key = process.env.REACT_APP_GABBY;
 const base_url = "https://v6.exchangerate-api.com/v6";
 
 const TravelCurrencyApp = () => {
@@ -38,7 +39,7 @@ const TravelCurrencyApp = () => {
   const fetchRealTimeExchangeRate = async (fromCurrency, toCurrency) => {
     try {
       const response = await axios.get(
-        `${base_url}/111/latest/${fromCurrency}`
+        `${base_url}/${api_key}/latest/${fromCurrency}`
       );
       const conversionRate = response.data.conversion_rates[toCurrency];
       if (!conversionRate) throw new Error("No conversion rate found");
