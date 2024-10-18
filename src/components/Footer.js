@@ -13,7 +13,7 @@ const Footer = () => {
         <ul className="flex flex-wrap justify-center sm:justify-start space-x-6 mb-4 sm:mb-0">
           <li>
             <a
-              href="/"
+              href="/privacy-and-policy"
               className="text-base hover:text-yellow-300 transition duration-300"
             >
               Privacy Policy
@@ -21,7 +21,7 @@ const Footer = () => {
           </li>
           <li>
             <a
-              href="/"
+              href="/terms-of-service"
               className="text-base hover:text-yellow-300 transition duration-300"
             >
               Terms of Service

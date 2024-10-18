@@ -6,6 +6,8 @@ import MainPage from "./components/MainPage.js";
 import Footer from "./components/Footer.js";
 import TravelCurrencyApp from "./components/Travel-Currency-Tool/TravelCurrencyApp.js";
 import Simulator from "./components/FX-Simulator/Simulator.js";
+import PrivacyPolicy from "./components/Privacy.js";
+import TermsOfService from "./components/TOS.js";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <Route path="/converter" element={<Currency />} />
             <Route path="/data" element={<TravelCurrencyApp />} />
             <Route path="/simulator" element={<Simulator />} />
+            <Route path="/privacy-and-policy" element={<PrivacyPolicy />}/>
+            <Route path="/terms-of-service" element={<TermsOfService />}/>
           </Routes>
         </main>
         <Footer />
