@@ -34,7 +34,7 @@ function Test() {
 
   return (
     <div className="container mx-auto my-5 p-4 bg-white shadow-lg rounded-lg">
-      <h1 className="text-center text-2xl font-bold mb-4">
+      <h1 className="text-3xl font-bold mb-4 text-center">
         FX Trade Execution Simulator
       </h1>
       {balances.USD === null ? (

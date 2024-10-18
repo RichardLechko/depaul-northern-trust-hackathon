@@ -4,29 +4,34 @@ const Carousel = () => {
   const slides = [
     {
       id: 1,
+      name: "Alexander Pierce",
       content:
-        "Currency Converter: Easily convert between different currencies with real-time exchange rates.",
+        "This platform has revolutionized the way I manage my investments. The insights are top-notch!",
       color: "bg-blue-500",
     },
     {
       id: 2,
+      name: "Isabella Martinez",
       content:
-        "Historical Data: Access a wealth of historical data to analyze trends and make informed decisions.",
+        "As a seasoned investor, I’ve never seen a more accurate predictive tool. It’s a game-changer!",
       color: "bg-green-500",
     },
     {
       id: 3,
+      name: "Michael Chen",
       content:
-        "Predictive Analysis: Utilize predictive analytics to forecast currency movements and optimize trading strategies.",
+        "The wealth management tools here are simply unmatched. I've seen significant growth in my portfolio.",
       color: "bg-red-500",
     },
     {
       id: 4,
+      name: "Sophia Thompson",
       content:
-        "FX Trade Simulator: Practice trading with our FX simulator, designed for both beginners and experienced traders.",
+        "I refined my trading strategies using their simulator. It’s perfect for both beginners and pros!",
       color: "bg-yellow-500",
     },
   ];
+  
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [startX, setStartX] = useState(0);
@@ -79,24 +84,28 @@ const Carousel = () => {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {slides.map((slide) => (
-            <div
-              key={slide.id}
-              className={`flex items-center justify-center h-[200px] text-white font-bold ${slide.color}`}
-              style={{ minWidth: "100%" }}
-            >
-              <p className="text-center text-xs">{slide.content}</p>
-            </div>
-          ))}
+  <div
+    key={slide.id}
+    className={`flex flex-col items-center justify-center h-[200px] text-white font-bold max-[768px]:font-semibold max-[640px]:font-light max-[640px]:h-[300px] ${slide.color}`}
+    style={{ minWidth: "100%" }}
+  >
+    <p className="text-center text-3xl w-3/5 mx-auto max-[1024px]:text-xl max-[768px]:text-lg max-[768px]:w-2/5 max-[640px]:w-3/5 max-[425px]:w-2/5 max-[375px]:text-base max-[320px]:text-sm">
+      {slide.content}
+    </p>
+    <p className="mt-2 text-lg text-black font-semibold italic">{slide.name}</p>
+  </div>
+))}
+
         </div>
       </div>
       <button
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg max-[640px]:px-2 max-[640px]:py-1"
         onClick={handleBack}
       >
         Back
       </button>
       <button
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg max-[640px]:px-2 max-[640px]:py-1"
         onClick={handleNext}
       >
         Next

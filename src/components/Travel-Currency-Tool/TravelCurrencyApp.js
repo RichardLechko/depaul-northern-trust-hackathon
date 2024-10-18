@@ -105,7 +105,7 @@ const TravelCurrencyApp = () => {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4 text-center">
-        Travel Currency Prediction Tool
+        Forex Future View
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <label className="block">
@@ -124,7 +124,7 @@ const TravelCurrencyApp = () => {
           </select>
         </label>
         <label className="block">
-          Destination Country:
+          Foreign Country:
           <select
             value={destinationCurrency}
             onChange={(e) => setDestinationCurrency(e.target.value)}
@@ -144,7 +144,7 @@ const TravelCurrencyApp = () => {
 
       <div className="mb-4">
         <label className="block">
-          Travel Duration (days):
+          Forecast Period (days):
           <input
             type="number"
             value={duration > 0 ? duration : ""}
@@ -160,7 +160,7 @@ const TravelCurrencyApp = () => {
         onClick={handlePredict}
         className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition"
       >
-        Predict Best Travel Dates
+        Generate Predictive Model 
       </button>
       <div className="mt-4">
         {predictions.map(({ date, rate, favorable, leastFavorable }) => (

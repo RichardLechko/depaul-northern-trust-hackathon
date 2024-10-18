@@ -69,7 +69,9 @@ const Currency = () => {
   return (
     <div>
       
-
+      <h1 className="text-3xl font-bold mt-12 text-center">
+        Real-Time Currency Converter
+      </h1>
       <div className="flex flex-col md:flex-row justify-center items-center h-[50vh]">
         <div className="flex flex-col md:flex-row">
           <div className="flex flex-col w-full md:w-auto md:mb-0">
