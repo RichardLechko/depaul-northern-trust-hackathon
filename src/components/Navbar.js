@@ -86,6 +86,15 @@ const Navbar = () => {
   <div className="flex flex-col h-full py-6 px-4">
     <h2 className="text-xl font-semibold text-teal-600 mb-6">Menu</h2>
     <ul className="space-y-4 text-lg text-gray-800">
+    <li>
+        <a
+          className="block py-2 px-4 hover:bg-teal-100 rounded-md transition duration-300"
+          href="/"
+          onClick={toggleMenu}
+        >
+          Home
+        </a>
+      </li>
       <li>
         <a
           className="block py-2 px-4 hover:bg-teal-100 rounded-md transition duration-300"
@@ -101,7 +110,7 @@ const Navbar = () => {
           href="/data"
           onClick={toggleMenu}
         >
-          Historical & Predictive Data
+          Forex Future View
         </a>
       </li>
       <li>

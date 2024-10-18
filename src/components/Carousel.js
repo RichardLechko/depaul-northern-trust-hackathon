@@ -92,7 +92,7 @@ const Carousel = () => {
     <p className="text-center text-3xl w-3/5 mx-auto max-[1024px]:text-xl max-[768px]:text-lg max-[768px]:w-2/5 max-[640px]:w-3/5 max-[425px]:w-2/5 max-[375px]:text-base max-[320px]:text-sm">
       {slide.content}
     </p>
-    <p className="mt-2 text-lg text-black font-semibold italic">{slide.name}</p>
+    <p className="mt-2 text-lg text-black font-semibold italic max-[425px]:text-base max-[320px]:text-sm">{slide.name}</p>
   </div>
 ))}
 
