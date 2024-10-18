@@ -1,29 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Carousel = () => {
   const slides = [
     {
       id: 1,
-      content: 'Currency Converter: Easily convert between different currencies with real-time exchange rates.',
-      color: 'bg-blue-500',
+      content:
+        "Currency Converter: Easily convert between different currencies with real-time exchange rates.",
+      color: "bg-blue-500",
     },
     {
       id: 2,
-      content: 'Historical Data: Access a wealth of historical data to analyze trends and make informed decisions.',
-      color: 'bg-green-500',
+      content:
+        "Historical Data: Access a wealth of historical data to analyze trends and make informed decisions.",
+      color: "bg-green-500",
     },
     {
       id: 3,
-      content: 'Predictive Analysis: Utilize predictive analytics to forecast currency movements and optimize trading strategies.',
-      color: 'bg-red-500',
+      content:
+        "Predictive Analysis: Utilize predictive analytics to forecast currency movements and optimize trading strategies.",
+      color: "bg-red-500",
     },
     {
       id: 4,
-      content: 'FX Trade Simulator: Practice trading with our FX simulator, designed for both beginners and experienced traders.',
-      color: 'bg-yellow-500',
+      content:
+        "FX Trade Simulator: Practice trading with our FX simulator, designed for both beginners and experienced traders.",
+      color: "bg-yellow-500",
     },
   ];
-  
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [startX, setStartX] = useState(0);
@@ -34,7 +37,9 @@ const Carousel = () => {
   };
 
   const handleBack = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
+    );
   };
 
   const handleTouchStart = (e) => {
@@ -76,12 +81,10 @@ const Carousel = () => {
           {slides.map((slide) => (
             <div
               key={slide.id}
-              className={`flex items-center justify-center w-full h-[500px] text-white font-bold ${slide.color}`}
-              style={{ minWidth: '100%' }}
+              className={`flex items-center justify-center h-[200px] text-white font-bold ${slide.color}`}
+              style={{ minWidth: "100%" }}
             >
-              <p className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl max-w-4xl px-4">
-                {slide.content}
-              </p>
+              <p className="text-center text-xs">{slide.content}</p>
             </div>
           ))}
         </div>
@@ -100,6 +103,6 @@ const Carousel = () => {
       </button>
     </div>
   );
-};  
+};
 
 export default Carousel;

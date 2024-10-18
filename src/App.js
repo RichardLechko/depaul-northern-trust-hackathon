@@ -9,6 +9,7 @@ import {
 import Navbar from "./components/Navbar.js";
 import MainPage from "./components/MainPage.js";
 import Footer from "./components/Footer.js";
+import TravelCurrencyApp from "./components/Travel-Currency-Tool/TravelCurrencyApp.js";
 
 function App() {
   return (
@@ -18,11 +19,10 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/converter" element={<Currency />} />
-          <Route path="/data" element={<Navigate to="/" replace />} />
+          <Route path="/data" element={<TravelCurrencyApp />} />
           <Route path="/simulator" element={<Navigate to="/" replace />} />
-        
         </Routes>
-        
+
         <Footer />
       </Router>
     </div>
