@@ -5,6 +5,7 @@ import {
   FaCalculator,
   FaBars,
   FaTimes,
+  FaHome,
 } from "react-icons/fa";
 
 const Navbar = () => {
@@ -32,6 +33,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex-grow text-center">
           <ul className="hidden md:flex justify-center space-x-12 text-3xl text-white max-[1440px]:text-2xl max-[1024px]:text-xl max-[1024px]:space-x-6">
+            <li>
+              <a
+                className="flex items-center hover:text-yellow-300 transition duration-300"
+                href="/"
+              >
+                <FaHome className="mr-2 text-4xl max-[1440px]:text-xl max-[1024px]:text-lg" />
+              </a>
+            </li>
             <li>
               <a
                 className="flex items-center hover:text-yellow-300 transition duration-300"

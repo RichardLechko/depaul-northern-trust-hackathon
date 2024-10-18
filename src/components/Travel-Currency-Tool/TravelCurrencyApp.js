@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import moment from "moment";
 import { Bar } from "react-chartjs-2";
@@ -15,6 +14,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import CustomCalendar from "./CustomCalendar";
 
 ChartJS.register(
   CategoryScale,
@@ -97,6 +97,10 @@ const TravelCurrencyApp = () => {
     setAllPredictions(predictionsData); // Store all predictions
   };
 
+  const handleDateChange = (date) => {
+    setStartDate(date); // Update start date state
+  };
+
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4 text-center">
@@ -134,17 +138,9 @@ const TravelCurrencyApp = () => {
         </label>
       </div>
       <div className="mb-4">
-        <label className="block">
-          Travel Start Date:
-          <div className="mt-1 relative">
-            <Calendar
-              onChange={setStartDate}
-              value={startDate}
-              className="w-full border-none" // Ensures no extra borders or padding
-            />
-          </div>
-        </label>
+        <CustomCalendar onChange={handleDateChange} />
       </div>
+
       <div className="mb-4">
         <label className="block">
           Travel Duration (days):

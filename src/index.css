@@ -28,3 +28,12 @@
   clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
   background: rgba(255, 0, 0, 0.5); /* Use a semi-transparent red */
 }
+
+.calendar-wrapper {
+  pointer-events: auto; /* Allows the calendar to respond to clicks */
+  z-index: 10; /* Ensures the calendar is on top of other elements */
+}
+
+.calendar-container {
+  pointer-events: none; /* Prevents clicks from registering outside the calendar */
+}
