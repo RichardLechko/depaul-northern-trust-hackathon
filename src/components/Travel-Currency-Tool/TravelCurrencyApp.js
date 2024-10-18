@@ -52,12 +52,13 @@ const TravelCurrencyApp = () => {
 
   const predictExchangeRate = (baseCurrency, targetCurrency, numDays) => {
     const predictions = [];
-    let currentRate = 1;
+    let currentRate = 1; // Or use the real-time rate fetched earlier
 
     for (let i = 0; i < numDays; i++) {
-      const predictedRate = currentRate * (1 + (Math.random() - 0.5) * 0.05);
+      const randomFactor = (Math.random() - 0.5) * 0.1; // +/- 10% variability
+      const predictedRate = currentRate * (1 + randomFactor);
       predictions.push(predictedRate);
-      currentRate = predictedRate;
+      currentRate = predictedRate; // Update current rate for the next day
     }
 
     return predictions;
